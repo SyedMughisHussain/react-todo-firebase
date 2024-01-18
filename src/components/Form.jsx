@@ -20,13 +20,12 @@ function Form() {
     setData([...data]);
   };
 
-  const editTodo = (index)=>{
-    const newValue = prompt("Enter the new value:", data[index].todo);
+  const editTodo = (index, val) => {
     data.splice(index, 1, {
-      todo: newValue,
+      todo: val,
     });
-    setData([...data])
-  }
+    setData([...data]);
+  };
 
   return (
     <>
@@ -35,6 +34,7 @@ function Form() {
           <input
             type="text"
             placeholder="Enter todo"
+            required
             ref={inputText}
             className="focus:outline-none border border-black p-2 rounded w-[300px]"
           />
