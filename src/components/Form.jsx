@@ -46,17 +46,26 @@ function Form() {
           </button>
         </form>
       </div>
-      {data.map((item, index) => {
-        return (
-          <Todo
-            key={index}
-            todo={item.todo}
-            deleteTodo={deleteTodo}
-            index={index}
-            editTodo={editTodo}
-          />
-        );
-      })}
+      {data.length === 0 ? (
+        <h1
+          className="flex justify-center items-center text-5xl font-bold
+      mt-10"
+        >
+          No todo added yet....
+        </h1>
+      ) : (
+        data.map((item, index) => {
+          return (
+            <Todo
+              key={index}
+              todo={item.todo}
+              deleteTodo={deleteTodo}
+              index={index}
+              editTodo={editTodo}
+            />
+          );
+        })
+      )}
     </>
   );
 }
